@@ -1,16 +1,16 @@
 package com.kata.service;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
-import org.junit.Test;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service permettant d'acceder aux comptes des clients
+ * @author ywick
+ *
+ */
 @Service
 public class AccountService {
 
@@ -21,6 +21,13 @@ public class AccountService {
 		accounts = new HashMap<Integer, Integer>();
 	}
 
+	/**
+	 * Permet de recuperer le solde d'un client
+	 * A 0 si le client n'existe pas (pas de service de creation de compte)
+	 * 
+	 * @param idCustomer
+	 * @return le solde
+	 */
 	public int getBalance(final int idCustomer) {
 		if(accounts.containsKey(idCustomer)) {
 			return accounts.get(idCustomer);
@@ -29,6 +36,13 @@ public class AccountService {
 		}
 	}
 
+	/**
+	 * Modification du solde d'un client
+	 * Le client est cree si il n'existe pas (pas de service de creation de compte)
+	 * 
+	 * @param idCustomer
+	 * @param amount
+	 */
 	public void updateBalance(final int idCustomer, final int amount){
 		accounts.put(idCustomer, amount + getBalance(idCustomer));
 	}
