@@ -1,13 +1,10 @@
 package com.kata.controller;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.http.HttpStatus;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kata.service.AccountService;
@@ -34,6 +31,7 @@ public class BankAccountController {
 	 * @throws Exception si le montant est negatif
 	 */
 	@PostMapping("/deposit")
+	@ResponseStatus(HttpStatus.OK)
 	public int deposit(@RequestBody Transaction transaction) throws Exception {
 		if(transaction.getAmount() < 0) { 
 			throw new Exception("La transaction n'a pas pu etre realisee car le montant n'est pas positif");
@@ -52,6 +50,7 @@ public class BankAccountController {
 	 * @throws Exception si le montant est positif
 	 */
 	@PostMapping("/withdrawal")
+	@ResponseStatus(HttpStatus.OK)
 	public int withdrawal(@RequestBody Transaction transaction) throws Exception {
 		if(transaction.getAmount() > 0) { 
 			throw new Exception("La transaction n'a pas pu etre realisee car le montant est positif");
