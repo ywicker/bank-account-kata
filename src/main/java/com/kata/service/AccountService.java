@@ -57,5 +57,9 @@ public class AccountService {
 	}
 
 	public void addOperation(final int idAccount, final Operation operation) {
+		Account account = getAccount(idAccount);
+		account.addOperation(operation);
+		account.setBalance(operation.getAmount() + account.getBalance());
+		accounts.put(idAccount, account);
 	}
 }

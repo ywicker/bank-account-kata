@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Account {
 	private int balance;
-	private List<Operation> operation;
+	private List<Operation> operations;
 
-	public List<Operation> getOperation() {
-		return operation;
+	public List<Operation> getOperations() {
+		return operations;
 	}
 
-	public void setOperation(List<Operation> operation) {
-		this.operation = operation;
+	public void addOperation(Operation operation) {
+		this.operations.add(operation);
 	}
 
 	public int getBalance() {
@@ -21,7 +21,7 @@ public class Account {
 
 	public Account() {
 		this.balance = 0;
-		this.operation = Collections.emptyList();
+		this.operations = Collections.emptyList();
 	}
 
 	public void setBalance(int balance) {
