@@ -1,19 +1,19 @@
 package com.kata.controller;
 
 public class Transaction {
-	public Transaction(int customerId, int amount) {
+	public Transaction(int accountId, int amount) {
 		super();
-		this.customerId = customerId;
+		this.accountId = accountId;
 		this.amount = amount;
 	}
-	private int customerId;
+	private int accountId;
 	private int amount;
 
-	public int getCustomerId() {
-		return customerId;
+	public int getAccountId() {
+		return accountId;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
 	}
 	public int getAmount() {
 		return amount;

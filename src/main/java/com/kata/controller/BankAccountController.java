@@ -37,8 +37,8 @@ public class BankAccountController {
 			throw new Exception("La transaction n'a pas pu etre realisee car le montant n'est pas positif");
 		}
 
-		accountService.updateBalance(transaction.getCustomerId(), transaction.getAmount());
-		return accountService.getBalance(transaction.getCustomerId());
+		accountService.updateBalance(transaction.getAccountId(), transaction.getAmount());
+		return accountService.getBalance(transaction.getAccountId());
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class BankAccountController {
 			throw new Exception("La transaction n'a pas pu etre realisee car le montant est positif");
 		}
 
-		accountService.updateBalance(transaction.getCustomerId(), transaction.getAmount());
-		return accountService.getBalance(transaction.getCustomerId());
+		accountService.updateBalance(transaction.getAccountId(), transaction.getAmount());
+		return accountService.getBalance(transaction.getAccountId());
 	}
 }
